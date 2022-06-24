@@ -1,4 +1,7 @@
-.weathe{
-    background-color: rgb(225, 218, 218);
-    border: 3px solid chocolate;
-} 
+
+.wrapper{
+    background-color: rgb(18, 200, 112);
+    width: 100%;
+    margin: 7px;
+    border: 0.5px rgb(101, 101, 243) solid;
+}

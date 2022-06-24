@@ -1,14 +1,11 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-// import {Link } from "react-router-dom";
-// import Weather from '../Weather/Weather';
 import Forecast from '../Forecast/Forecast';
 import './WeatherAndForecast.css';
-import WeatherDetails from '../WeatherDetails/WeatherDetails';
 
 function WeatherAndForecast({ weatherInfo, location }) {
   const [data, setData] = useState({});
-  const [dateselected, setDateSelected] = useState('');
+  const [dateselected, setDateselected] = useState('');
   // eslint-disable-next-line no-use-before-define
   const date = dateBuilder(new Date());
   function dateBuilder(d) {
@@ -25,7 +22,6 @@ function WeatherAndForecast({ weatherInfo, location }) {
     // eslint-disable-next-line no-shadow
     const date = [];
 
-    // 5=8
     // eslint-disable-next-line no-plusplus
     for (let count = 0; count < 8; count++) {
       if (d.getDay() + count < 7) date[count] = d.getDay() + count;
@@ -49,11 +45,7 @@ function WeatherAndForecast({ weatherInfo, location }) {
       days[date[6]],
     ];
   }
-  const selectDay = (id, currentData) => {
-    setDateSelected(id);
-    setData(currentData);
-    console.log(currentData);
-  };
+
   return (
     <>
       <div className="WeatherAndForecast">
@@ -61,10 +53,6 @@ function WeatherAndForecast({ weatherInfo, location }) {
           <Forecast
             weatherInfo={weatherInfo.daily[0]}
             date={date[0]}
-            onClick={() =>
-              selectDay(weatherInfo.daily[0].dt, weatherInfo.daily[0])}
-            dateselected={dateselected}
-            role="button"
           />
           <Forecast
             weatherInfo={weatherInfo.daily[1]}
@@ -97,11 +85,6 @@ function WeatherAndForecast({ weatherInfo, location }) {
           />
         </div>
       </div>
-      {!data && (
-        <WeatherDetails
-          weatherInfo={data}
-        />
-      )}
     </>
   );
 }
