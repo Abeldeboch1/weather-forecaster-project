@@ -4,16 +4,13 @@ import WeatherAndForecast from './components/WeatherAndForecast/WeatherAndForeca
 import Footer from './components/Footer/Footer';
 import Loader from './components/Loader/Loader';
 import NotFoundError from './components/NotFoundError/NotFoundError';
-
 import getAddressOfCoordinates from './api/reverseGeocoding';
 import getCoordinatesOfAddress from './api/forwardGeocoding';
 import getWeatherAndForecast from './api/weatherAndForecast';
 
 import './Home.css';
-// import WeatherDetail from './components/WeatherDetails/WeatherDetails';
-import WeatherDetails from './components/WeatherDetails/WeatherDetails';
 
-function Home() {
+function Home(data) {
   const [address, setAddress] = useState(' ');
   const [coordinates, setCoordinates] = useState({});
   const [weatherAndForecastInfo, setWeatherAndForecastInfo] =
@@ -135,7 +132,6 @@ function Home() {
     <div className="App">
       <div className="App__container">
         <Header searchCity={searchCity} />
-        {/* weatherAndForecastInfo.daily.length && */}
         {Main[contentState]()}
         <Footer />
       </div>

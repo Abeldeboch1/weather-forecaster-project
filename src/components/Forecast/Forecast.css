@@ -4,6 +4,7 @@
    background-color: rgb(103, 115, 103); 
 }
 .container{
+  justify-content:left;
  background-color: gray;
  height: 100%;
   margin: 10px;
